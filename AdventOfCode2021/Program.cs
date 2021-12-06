@@ -1,4 +1,4 @@
-﻿using System;
+﻿using AdventOfCode2021.Days;
 
 namespace AdventOfCode2021
 {
@@ -6,7 +6,8 @@ namespace AdventOfCode2021
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello world!");
+            Day1.SonarSweep();
+            Day1.SonarSweep_Windowed();
         }
     }
 }
