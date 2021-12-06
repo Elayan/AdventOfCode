@@ -7,6 +7,7 @@ namespace AdventOfCode2021
         public static void Main(string[] args)
         {
             Day1.SonarSweep();
+            Day1.SonarSweep_Windowed();
         }
     }
 }
