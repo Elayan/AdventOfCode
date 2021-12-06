@@ -43,9 +43,17 @@
     </ItemGroup>
     <ItemGroup>
         <None Include="data\day1.txt">
-          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
+        <None Include="data\day2.txt">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <Compile Include="Core\Course.cs" />
+        <Compile Include="Core\Direction.cs" />
+        <Compile Include="Core\Instruction.cs" />
+        <Compile Include="Core\Position.cs" />
         <Compile Include="Days\Day1.cs" />
+        <Compile Include="Days\Day2.cs" />
         <Compile Include="Helpers\FileReader.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
