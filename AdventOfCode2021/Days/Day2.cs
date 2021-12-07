@@ -22,7 +22,7 @@ namespace AdventOfCode2021.Days
             };
 
             var finish = course.SimulateCourse(start, false);
-            Console.WriteLine($"[#02a] Dive : arrival code = {finish.HorizontalPosition} x {finish.Depth} = {finish.HorizontalPosition * finish.Depth}");
+            Console.WriteLine($"[#02a] Dive aimless : arrival code = {finish.HorizontalPosition} x {finish.Depth} = {finish.HorizontalPosition * finish.Depth}");
         }
 
         public static void DiveWithAim()
@@ -38,7 +38,7 @@ namespace AdventOfCode2021.Days
             };
 
             var finish = course.SimulateCourse(start, true);
-            Console.WriteLine($"[#02b] Dive : arrival code = {finish.HorizontalPosition} x {finish.Depth} = {finish.HorizontalPosition * finish.Depth}");
+            Console.WriteLine($"[#02b] Dive with aim : arrival code = {finish.HorizontalPosition} x {finish.Depth} = {finish.HorizontalPosition * finish.Depth}");
         }
     }
 }
