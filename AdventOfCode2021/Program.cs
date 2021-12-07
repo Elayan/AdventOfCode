@@ -11,6 +11,8 @@ namespace AdventOfCode2021
 
             Day2.Dive();                    // 1480518
             Day2.DiveWithAim();             // 1282809906
+            
+            Day3.DecodeBinaryConsumption(); // 3923414
         }
     }
 }

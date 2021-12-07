@@ -57,6 +57,7 @@
         <Compile Include="Core\Location.cs" />
         <Compile Include="Days\Day1.cs" />
         <Compile Include="Days\Day2.cs" />
+        <Compile Include="Days\Day3.cs" />
         <Compile Include="Helpers\FileReader.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />

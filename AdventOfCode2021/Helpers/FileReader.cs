@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using AdventOfCode2021.Core;
 using JetBrains.Annotations;
 
@@ -31,6 +32,42 @@ namespace AdventOfCode2021.Helpers
             }
 
             return ints.ToArray();
+        }
+
+        [NotNull]
+        public static string[] ReadStringsFromFile([NotNull] string filename)
+        {
+            if (!Validate(filename, out var path))
+                return new string[0];
+
+            var strings = new List<string>();
+            using (var sr = new StreamReader(path))
+            {
+                while (sr.Peek() >= 0)
+                {
+                    strings.Add(sr.ReadLine());
+                }
+            }
+
+            return strings.ToArray();
+        }
+
+        [NotNull]
+        public static string[] ReadBinariesFromFile([NotNull] string filename)
+        {
+            var strings = ReadStringsFromFile(filename);
+
+            foreach (var str in strings)
+            {
+                // if it contains anything else but 0 and 1, then it's not a binary
+                if (str.Except("0").Except("1").Any())
+                {
+                    Console.WriteLine($"Line '{str}' couldn't be read as binary.");
+                    return new string[0];
+                }
+            }
+
+            return strings;
         }
 
         [CanBeNull]
