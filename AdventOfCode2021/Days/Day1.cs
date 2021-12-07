@@ -5,6 +5,9 @@ using JetBrains.Annotations;
 
 namespace AdventOfCode2021.Days
 {
+    /// <summary>
+    /// https://adventofcode.com/2021/day/1
+    /// </summary>
     public static class Day1
     {
         public static void SonarSweep()
