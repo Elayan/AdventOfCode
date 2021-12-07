@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using AdventOfCode2021.Core;
+using AdventOfCode2021.Core.Bingo;
+using AdventOfCode2021.Core.Course;
 using JetBrains.Annotations;
 
 namespace AdventOfCode2021.Helpers
@@ -115,6 +117,58 @@ namespace AdventOfCode2021.Helpers
                 }
             }
             return course;
+        }
+
+        public static Bingo ReadBingoFromFile(string filename)
+        {
+            if (!Validate(filename, out var path))
+                return null;
+            
+            var bingo = new Bingo();
+            using (var sr = new StreamReader(path))
+            {
+                // first line is the sequence
+                var line = sr.ReadLine();
+                if (line == null)
+                {
+                    Console.WriteLine("First line couldn't be read.");
+                    return null;
+                }
+
+                var strSequence = line.Split(',');
+                if (strSequence.Length == 0)
+                {
+                    Console.WriteLine("Bingo's sequence contains no value.");
+                    return null;
+                }
+
+                bingo.Sequence.AddRange(strSequence.Select(int.Parse));
+
+                // skip this line
+                sr.ReadLine();
+
+                // following lines are grids
+                while (sr.Peek() >= 0)
+                {
+                    var gridParts = new List<List<int>>();
+                    line = sr.ReadLine();
+                    while (!string.IsNullOrEmpty(line))
+                    {
+                        var parts = line.Split(' ').Where(s => s.Length > 0).Select(int.Parse);
+                        gridParts.Add(new List<int>(parts));
+                        line = sr.ReadLine();
+                    }
+
+                    var size = gridParts.Count;
+                    var grid = new Grid(size, size, 0);
+                    for (var r = 0; r < size; r++)
+                        for (var c = 0; c < size; c++)
+                            grid.SetValue(r, c, gridParts[r][c]);
+                    bingo.Grids.Add(grid);
+                }
+
+                return bingo;
+            }
         }
 
         private static bool Validate(string filename, out string path)

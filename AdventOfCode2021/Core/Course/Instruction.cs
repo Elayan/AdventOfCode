@@ -1,6 +1,6 @@
 using System;
 
-namespace AdventOfCode2021.Core
+namespace AdventOfCode2021.Core.Course
 {
     public class Instruction
     {
