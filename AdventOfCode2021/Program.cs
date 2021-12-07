@@ -15,7 +15,8 @@ namespace AdventOfCode2021
             Day3.DecodeBinaryPowerConsumption(); // 3923414
             Day3.DecodeBinaryLifeSupport();      // 5852595
 
-            Day4.PlayBingo();                    // 25410
+            Day4.PlayFirstBingo();               // 25410
+            Day4.PlayLastBingo();                // 
         }
     }
 }
