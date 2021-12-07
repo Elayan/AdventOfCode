@@ -1,5 +1,6 @@
 using System;
 using AdventOfCode2021.Core;
+using AdventOfCode2021.Core.Course;
 using AdventOfCode2021.Helpers;
 
 namespace AdventOfCode2021.Days

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 
-namespace AdventOfCode2021.Core
+namespace AdventOfCode2021.Core.Course
 {
     public class Course
     {
