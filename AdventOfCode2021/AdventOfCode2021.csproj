@@ -54,6 +54,9 @@
         <None Include="data\day4.txt">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
+        <None Include="data\day5.txt">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
         <Compile Include="Core\Bingo\Bingo.cs" />
         <Compile Include="Core\Bingo\Cell.cs" />
         <Compile Include="Core\Bingo\Grid.cs" />
