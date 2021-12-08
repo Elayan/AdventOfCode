@@ -64,10 +64,14 @@
         <Compile Include="Core\Course\Direction.cs" />
         <Compile Include="Core\Course\Instruction.cs" />
         <Compile Include="Core\Course\Location.cs" />
+        <Compile Include="Core\Math\Coord.cs" />
+        <Compile Include="Core\Math\Grid.cs" />
+        <Compile Include="Core\Math\Segment.cs" />
         <Compile Include="Days\Day1.cs" />
         <Compile Include="Days\Day2.cs" />
         <Compile Include="Days\Day3.cs" />
         <Compile Include="Days\Day4.cs" />
+        <Compile Include="Days\Day5.cs" />
         <Compile Include="Helpers\FileReader.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
