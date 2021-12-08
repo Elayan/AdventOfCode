@@ -205,18 +205,18 @@ namespace AdventOfCode2021.Helpers
                     }
 
                     segments.Add(new Segment
-                    {
-                        PointA = new Coord
+                    (
+                        new Coord
                         {
                             X = int.Parse(xCoords[0]),
                             Y = int.Parse(xCoords[1])
                         },
-                        PointB = new Coord
+                        new Coord
                         {
                             X = int.Parse(yCoords[0]),
                             Y = int.Parse(yCoords[1])
                         }
-                    });
+                    ));
                 }
 
                 return segments.ToArray();

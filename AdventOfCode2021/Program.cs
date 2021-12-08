@@ -18,7 +18,8 @@ namespace AdventOfCode2021
             Day4.PlayFirstBingo();               // 25410
             Day4.PlayLastBingo();                // 2730
 
-            Day5.ComputeVenture();
+            Day5.ComputePartialVenture();        // 4993
+            Day5.ComputeFullVenture();           // 21101
         }
     }
 }

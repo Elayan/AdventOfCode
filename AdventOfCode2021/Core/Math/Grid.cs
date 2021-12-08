@@ -11,11 +11,14 @@ namespace AdventOfCode2021.Core.Math
         private int MinY { get; }
         private int MaxY { get; }
         private int Height => MaxY - MinY + 1;
+        
+        private int DefaultValue { get; }
 
         private readonly int[][] _values;
 
         public Grid(int minX, int maxX, int minY, int maxY, int defaultValue = 0)
         {
+            DefaultValue = defaultValue;
             MinX = minX;
             MaxX = maxX;
             MinY = minY;
@@ -72,7 +75,21 @@ namespace AdventOfCode2021.Core.Math
                         Increment(x, segment.PointA.Y);
                 }
             }
-            else throw new NotImplementedException("I don't know how to draw a diagonal segment.");
+            else if (segment.IsRightDiagonal)
+            {
+                var x = segment.PointA.X;
+                var y = segment.PointA.Y;
+                for (; x <= segment.PointB.X; x++, y++)
+                    Increment(x, y);
+            }
+            else if (segment.IsLeftDiagonal)
+            {
+                var x = segment.PointA.X;
+                var y = segment.PointA.Y;
+                for (; x >= segment.PointB.X; x--, y++)
+                    Increment(x, y);
+            }
+            else throw new NotImplementedException("I don't know how to draw a segment that is not vertical, horizontal or diagonal.");
         }
 
         private void Increment(int x, int y)

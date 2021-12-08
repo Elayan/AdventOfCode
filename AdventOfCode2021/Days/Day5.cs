@@ -7,15 +7,25 @@ namespace AdventOfCode2021.Days
 {
     public static class Day5
     {
-        public static void ComputeVenture()
+        public static void ComputePartialVenture()
         {
             var segments = FileReader.ReadSegmentsFromFile("day5");
             var grid = CreateGridBigEnoughForSegments(segments);
-            var nonDiagonals = segments.Where(s => !s.IsDiagonal).ToList();
+            var nonDiagonals = segments.Where(s => s.IsHorizontal || s.IsVertical).ToList();
             foreach (var nonDiagonal in nonDiagonals)
                 grid.Increment(nonDiagonal);
             var highWindPointCount = grid.CountValuesHigherThan(1);
-            Console.WriteLine($"[#05a] Thermal Venture : points with at least two crosswinds = {highWindPointCount}");
+            Console.WriteLine($"[#05a] Partial Thermal Venture : points with at least two crosswinds = {highWindPointCount}");
+        }
+
+        public static void ComputeFullVenture()
+        {
+            var segments = FileReader.ReadSegmentsFromFile("day5");
+            var grid = CreateGridBigEnoughForSegments(segments);
+            foreach (var segment in segments)
+                grid.Increment(segment);
+            var highWindPointCount = grid.CountValuesHigherThan(1);
+            Console.WriteLine($"[#05b] Full Thermal Venture : points with at least two crosswinds = {highWindPointCount}");
         }
 
         private static Grid CreateGridBigEnoughForSegments(Segment[] segments)
