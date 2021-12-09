@@ -2,10 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using AdventOfCode2021.Core;
 using AdventOfCode2021.Core.Bingo;
 using AdventOfCode2021.Core.Course;
+using AdventOfCode2021.Core.Math;
 using JetBrains.Annotations;
+using Grid = AdventOfCode2021.Core.Bingo.Grid;
 
 namespace AdventOfCode2021.Helpers
 {
@@ -123,7 +124,7 @@ namespace AdventOfCode2021.Helpers
         {
             if (!Validate(filename, out var path))
                 return null;
-            
+
             var bingo = new Bingo();
             using (var sr = new StreamReader(path))
             {
@@ -168,6 +169,57 @@ namespace AdventOfCode2021.Helpers
                 }
 
                 return bingo;
+            }
+        }
+
+        public static Segment[] ReadSegmentsFromFile(string filename)
+        {
+            if (!Validate(filename, out var path))
+                return new Segment[0];
+
+            var segments = new List<Segment>();
+            using (var sr = new StreamReader(path))
+            {
+                while (sr.Peek() >= 0)
+                {
+                    var line = sr.ReadLine();
+                    if (string.IsNullOrEmpty(line))
+                    {
+                        Console.WriteLine("Failed reading segments.");
+                        return new Segment[0];
+                    }
+
+                    var points = line.Split(' ');
+                    if (points.Length != 3)
+                    {
+                        Console.WriteLine($"Line '{line}' couldn't be read as 'point -> point'.");
+                        return new Segment[0];
+                    }
+
+                    var xCoords = points[0].Split(',');
+                    var yCoords = points[2].Split(',');
+                    if (xCoords.Length != 2 || yCoords.Length != 2)
+                    {
+                        Console.WriteLine($"Line '{line}' couldn't be read as 'point -> point'.");
+                        return new Segment[0];
+                    }
+
+                    segments.Add(new Segment
+                    (
+                        new Coord
+                        {
+                            X = int.Parse(xCoords[0]),
+                            Y = int.Parse(xCoords[1])
+                        },
+                        new Coord
+                        {
+                            X = int.Parse(yCoords[0]),
+                            Y = int.Parse(yCoords[1])
+                        }
+                    ));
+                }
+
+                return segments.ToArray();
             }
         }
 
