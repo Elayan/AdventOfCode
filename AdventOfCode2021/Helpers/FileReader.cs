@@ -38,6 +38,25 @@ namespace AdventOfCode2021.Helpers
         }
 
         [NotNull]
+        public static int[] ReadIntegerListFromFile([NotNull] string filename)
+        {
+            if (!Validate(filename, out var path))
+                return new int[0];
+
+            using (var sr = new StreamReader(path))
+            {
+                var line = sr.ReadLine();
+                if (line == null)
+                {
+                    Console.WriteLine("Empty line couldn't be read as int list.");
+                    return null;
+                }
+
+                return line.Split(',').Select(int.Parse).ToArray();
+            }
+        }
+
+        [NotNull]
         public static string[] ReadStringsFromFile([NotNull] string filename)
         {
             if (!Validate(filename, out var path))
