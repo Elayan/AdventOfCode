@@ -20,6 +20,8 @@ namespace AdventOfCode2021
 
             Day5.ComputePartialVenture();        // 4993
             Day5.ComputeFullVenture();           // 21101
+
+            Day6.SimulateLanternFishes();        // 343441
         }
     }
 }
