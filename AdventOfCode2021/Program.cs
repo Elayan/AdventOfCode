@@ -24,7 +24,8 @@ namespace AdventOfCode2021
             Day6.SimulateLanternFishes();                // 343441
             Day6.SimulateLanternFishes_Grouped();        // 1569108373832
 
-            Day7.AlignCrabs();                           // 336701
+            Day7.AlignCrabs_Linear();                    // 336701
+            Day7.AlignCrabs_Gradual();                   // 688251 < x < 95167367
         }
     }
 }
