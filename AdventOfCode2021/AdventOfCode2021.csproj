@@ -62,6 +62,9 @@
     <None Include="data\day7.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="data\day8.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Compile Include="Core\Bingo\Bingo.cs" />
     <Compile Include="Core\Bingo\Cell.cs" />
     <Compile Include="Core\Bingo\Grid.cs" />
@@ -69,6 +72,8 @@
     <Compile Include="Core\Course\Direction.cs" />
     <Compile Include="Core\Course\Instruction.cs" />
     <Compile Include="Core\Course\Location.cs" />
+    <Compile Include="Core\Display\SevenSegmentDigit.cs" />
+    <Compile Include="Core\Display\SevenSegmentDisplay.cs" />
     <Compile Include="Core\Math\Coord.cs" />
     <Compile Include="Core\Math\Grid.cs" />
     <Compile Include="Core\Math\Segment.cs" />
@@ -79,6 +84,7 @@
     <Compile Include="Days\Day5.cs" />
     <Compile Include="Days\Day6.cs" />
     <Compile Include="Days\Day7.cs" />
+    <Compile Include="Days\Day8.cs" />
     <Compile Include="Helpers\FileReader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

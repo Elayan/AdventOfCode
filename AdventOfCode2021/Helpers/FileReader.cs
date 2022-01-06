@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using AdventOfCode2021.Core.Bingo;
 using AdventOfCode2021.Core.Course;
+using AdventOfCode2021.Core.Display;
 using AdventOfCode2021.Core.Math;
 using JetBrains.Annotations;
 using Grid = AdventOfCode2021.Core.Bingo.Grid;
@@ -240,6 +241,39 @@ namespace AdventOfCode2021.Helpers
 
                 return segments.ToArray();
             }
+        }
+
+        public static SevenSegmentDisplay[] ReadSevenSegmentDisplaysFromFile(string filename)
+        {
+            if (!Validate(filename, out var path))
+                return new SevenSegmentDisplay[0];
+
+            var displays = new List<SevenSegmentDisplay>();
+            using (var sr = new StreamReader(path))
+            {
+                while (sr.Peek() >= 0)
+                {
+                    var line = sr.ReadLine();
+                    var parts = line.Split('|');
+                    if (parts.Length != 2)
+                    {
+                        Console.WriteLine($"Line '{line}' couldn't be read as Seven-Segment Display info");
+                        return new SevenSegmentDisplay[0];
+                    }
+
+                    var digits = parts[0].Split(' ');
+                    if (digits.Length != 11)
+                    {
+                        Console.WriteLine($"First part of line '{line}' should have 10 digits (found {(digits.Length - 1)}).");
+                        return new SevenSegmentDisplay[0];
+                    }
+
+                    var outputs = parts[1].Split(' ');
+                    displays.Add(new SevenSegmentDisplay(digits.Take(10).ToList(), outputs.Skip(1).ToList()));
+                }
+            }
+
+            return displays.ToArray();
         }
 
         private static bool Validate(string filename, out string path)
