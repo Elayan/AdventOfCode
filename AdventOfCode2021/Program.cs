@@ -29,6 +29,7 @@ namespace AdventOfCode2021
             Day7.AlignCrabs_Gradual();                   // 95167302
 
             Day8.ReadDigits_Partial();                   // 383
+            Day8.ReadDigits_Complete();                  // 998900
 
             Console.ReadKey(true);
         }

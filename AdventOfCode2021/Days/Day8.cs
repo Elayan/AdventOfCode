@@ -55,16 +55,32 @@ namespace AdventOfCode2021.Days
             //var sevSegDisplays = GetTestData();
 
             // 1: two signals
-            var oneCount = sevSegDisplays.SelectMany(d => d.ScrambledOutputs).Count(o => o.VisibleSegmentCount == 2);
+            var oneCount = sevSegDisplays.SelectMany(d => d.Outputs).Count(o => o.VisibleSegmentCount == 2);
             // 4: four signals
-            var fourCount = sevSegDisplays.SelectMany(d => d.ScrambledOutputs).Count(o => o.VisibleSegmentCount == 4);
+            var fourCount = sevSegDisplays.SelectMany(d => d.Outputs).Count(o => o.VisibleSegmentCount == 4);
             // 7: three signals
-            var sevenCount = sevSegDisplays.SelectMany(d => d.ScrambledOutputs).Count(o => o.VisibleSegmentCount == 3);
+            var sevenCount = sevSegDisplays.SelectMany(d => d.Outputs).Count(o => o.VisibleSegmentCount == 3);
             // 8: seven signals
-            var eightCount = sevSegDisplays.SelectMany(d => d.ScrambledOutputs).Count(o => o.VisibleSegmentCount == 7);
+            var eightCount = sevSegDisplays.SelectMany(d => d.Outputs).Count(o => o.VisibleSegmentCount == 7);
             var totalCount = oneCount + fourCount + sevenCount + eightCount;
 
             Console.WriteLine($"[#08a] Partial Seven-Segment Read : 1/4/7/8 numbers count = {oneCount} + {fourCount} + {sevenCount} + {eightCount} = {totalCount}");
+        }
+
+        public static void ReadDigits_Complete()
+        {
+            var sevSegDisplays = FileReader.ReadSevenSegmentDisplaysFromFile("day8");
+            //var sevSegDisplays = GetTestData();
+
+            long total = 0;
+            foreach (var sevSegDisplay in sevSegDisplays)
+            {
+                sevSegDisplay.Unscramble();
+                var decodedOutput = sevSegDisplay.DecodeOutput();
+                total += decodedOutput;
+            }
+
+            Console.WriteLine($"[#08b] Complete Seven-Segment Read : total decoded = {total}");
         }
     }
 }
